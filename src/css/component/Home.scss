@@ -1,0 +1,18 @@
+@import "../common/base";
+section.home{
+  background: #343D46;
+  &>h1{
+    height: 500px;
+    background: url(../../image/home/banner.jpg) center;
+  }
+  &>article{
+    padding: 20px 0;
+    min-height: 300px;
+    p{
+      margin-top: 50px;
+      text-align: center;
+      font-size: 18px;
+      color:nth($gray,2);
+    }
+  }
+}

@@ -1,0 +1,13 @@
+@import "../common/base";
+section.project{
+  &>article{
+    padding: 20px 0;
+    min-height: 300px;
+    p{
+      margin-top: 50px;
+      text-align: center;
+      font-size: 18px;
+      color:nth($black,2);
+    }
+  }
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NZOO</title>
+    <style>
+        app>div.loading-mask{
+            position: absolute;
+            top: 150px;
+            left: 50%; margin-left: -204px;
+            width:409px;height:158px;
+            overflow: hidden;
+        }
+        .loading-mask mask-bg,.loading-mask mask-top{
+            mask-image: url(src/image/common/mask.png);
+            -webkit-mask-image: url(src/image/common/mask.png);
+        }
+        .loading-mask mask-bg{
+            position: absolute;
+            width:409px;height:158px;
+            background-image: linear-gradient(353deg,#89C027,#89C027 28%,#E96036 28%,#E96036 49%,#FEF158 49%,#FEF158 72%,#76C5EE 72%);
+            background-image: -webkit-linear-gradient(353deg,#89C027,#89C027 28%,#E96036 28%,#E96036 49%,#FEF158 49%,#FEF158 72%,#76C5EE 72%);
+            background-image: -moz-linear-gradient(353deg,#89C027,#89C027 28%,#E96036 28%,#E96036 49%,#FEF158 49%,#FEF158 72%,#76C5EE 72%);
+        }
+        .loading-mask mask-top{
+            position: absolute;
+            width:409px;height:158px;
+            background-image: linear-gradient(bottom,#EEEEEE,#EEEEEE 60%,rgba(0,0,0,0) 60%);
+            background-image: -webkit-linear-gradient(bottom,#EEEEEE,#EEEEEE 60%,rgba(0,0,0,0) 60%);
+            background-image: -moz-linear-gradient(bottom,#EEEEEE,#EEEEEE 60%,rgba(0,0,0,0) 60%);
+            background-size: auto 300% ;
+            -webkit-background-size: auto 300% ;
+            -moz-background-size: auto 300% ;
+            background-position: 0 -50%;
+            transition: all 5s cubic-bezier(0, 0, 0.28, 1) 1s;
+        }
+        app.loading mask-top{
+            background-position: 0 -8%;
+        }
+        app.loading-done mask-top{
+            background-position: 0 0;
+            transition: all 0.3s;
+        }
+    </style>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 style="display:none" >
+    <symbol width="45.998px" height="18px" viewBox="0 0 45.998 18" id="svg-logo">
+        <path fill-rule="evenodd" clip-rule="evenodd" fill="#FEF158" d="M27.828,12.69c-0.14,1.01-0.26,1.64-0.36,1.91
+	c-0.09,0.27-0.24,0.4-0.45,0.4c-0.2,0-0.31-0.12-0.34-0.35c-0.02-0.23,0.04-0.84,0.17-1.83l1.1-7.97c0.13-0.87,0.24-1.4,0.35-1.58
+	c0.11-0.18,0.24-0.27,0.4-0.27c0.19,0,0.3,0.11,0.33,0.33c0.03,0.23-0.01,0.73-0.12,1.52L27.828,12.69z M33.308,7.52
+	c0.25-1.78,0.37-3.02,0.39-3.73c0.01-0.71-0.17-1.37-0.54-1.97c-0.37-0.61-0.91-1.06-1.61-1.37c-0.7-0.3-1.52-0.45-2.45-0.45
+	c-0.98,0-1.87,0.16-2.65,0.48c-0.79,0.32-1.44,0.78-1.95,1.38c-0.52,0.6-0.87,1.26-1.05,1.98c-0.18,0.72-0.4,1.95-0.63,3.68
+	l-0.41,2.96c-0.25,1.78-0.38,3.02-0.39,3.73c-0.02,0.71,0.16,1.37,0.53,1.98c0.37,0.6,0.91,1.05,1.61,1.36
+	c0.7,0.3,1.52,0.45,2.45,0.45c0.99,0,1.87-0.16,2.66-0.48c0.78-0.32,1.43-0.77,1.95-1.37s0.87-1.26,1.05-1.98
+	c0.18-0.72,0.39-1.95,0.63-3.69L33.308,7.52z"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" fill="#76C5EE" d="M40.127,12.69c-0.14,1.01-0.26,1.64-0.35,1.91
+	c-0.1,0.27-0.25,0.4-0.45,0.4c-0.21,0-0.32-0.12-0.34-0.35c-0.03-0.23,0.03-0.84,0.17-1.83l1.1-7.97c0.12-0.87,0.23-1.4,0.34-1.58
+	S40.848,3,41.007,3c0.18,0,0.29,0.11,0.32,0.33c0.03,0.23-0.01,0.73-0.12,1.52L40.127,12.69z M45.607,7.52
+	c0.25-1.78,0.38-3.02,0.39-3.73s-0.17-1.37-0.54-1.97c-0.37-0.61-0.9-1.06-1.6-1.37c-0.7-0.3-1.52-0.45-2.45-0.45
+	c-0.99,0-1.88,0.16-2.66,0.48s-1.44,0.78-1.95,1.38c-0.52,0.6-0.87,1.26-1.05,1.98c-0.18,0.72-0.39,1.95-0.63,3.68l-0.41,2.96
+	c-0.25,1.78-0.38,3.02-0.39,3.73c-0.01,0.71,0.17,1.37,0.54,1.98c0.37,0.6,0.9,1.05,1.61,1.36c0.7,0.3,1.51,0.45,2.45,0.45
+	c0.98,0,1.87-0.16,2.65-0.48c0.78-0.32,1.44-0.77,1.95-1.37c0.52-0.6,0.87-1.26,1.05-1.98c0.18-0.72,0.4-1.95,0.64-3.69L45.607,7.52
+	z"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" fill="#89C027" d="M0.018,16.43l-0.01,0.07c-0.01,0.07-0.01,0.15,0,0.23
+	c-0.01,0.71,0.33,1.04,1.19,1.04h1.42c1,0,1.35-0.45,1.49-1.42v-0.04h-0.02l0.9-6.51l1.07,6.61c0,0,0.08,0.33,0.2,0.64
+	c0.18,0.47,0.81,0.75,1.37,0.72h1.43c1,0,1.33-0.43,1.46-1.39l0.01-0.07l2.02-14.64c0.13-0.97-0.1-1.44-1.1-1.44h-0.01h-0.03h-1.3
+	h-0.03c-0.86,0-1.44,0.41-1.55,1.11c0,0.12-0.93,6.79-0.93,6.79l-1.36-7.05l-0.01-0.01c-0.04-0.42-0.37-0.84-0.86-0.84h-1.75
+	c-1,0-1.42,0.49-1.56,1.46L0.018,16.43z"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" fill="#E96036" d="M14.127,2.2c-0.13,0.94,0.12,1.46,1.07,1.48l0.03,0.01h2.06
+	l-3.47,7.48c-0.41,0.93-1.2,2.77-1.35,3.2c-0.2,0.57-0.25,0.97-0.25,0.97l-0.14,0.97c-0.13,0.91,0.17,1.49,1.22,1.49l5.52,0.01
+	l0.01-0.02v0.02h0.03c1,0,1.42-0.49,1.56-1.46l0.07-0.51c0.13-0.94-0.13-1.46-1.07-1.49h-0.04h-2.05l2.44-5.27
+	c0,0,2.23-4.99,2.38-5.41c0.2-0.57,0.24-0.97,0.24-0.97l0.17-1.16c0.09-0.85-0.21-1.29-1.12-1.31h-0.04h-0.04h-5.56l-0.02,0.01V0.23
+	h-0.03c-1,0-1.42,0.49-1.55,1.46L14.127,2.2z"/>
+    </symbol>
+</svg>
+<app>
+    <div class="loading-mask">
+        <svg width="409px" height="158px">
+            <defs>
+                <mask id="mask">
+                    <image width="409px" height="158px" xlink:href="src/image/common/mask.png"></image>
+                </mask>
+            </defs>
+            <foreignObject width="409px" height="158px" style="mask: url(#mask);">
+
+                <mask-bg></mask-bg>
+                <mask-top></mask-top>
+
+            </foreignObject>
+        </svg>
+
+    </div>
+</app>
+<script>
+    document.write('<base href="' + document.location + '" />');
+
+    var ua = navigator.userAgent.toLocaleLowerCase();
+    if(ua.indexOf('edge')>0 || ua.indexOf('trident')>0){
+        alert('请使用新版的 chrome 或 firefox 访问本站')
+    }
+
+    setTimeout(function(){
+        document.querySelector('app').className='loading';
+    },10);
+
+</script>
+<script src="dist/js/page/index.js"></script>
+<!--<script src="http://localhost:8080/assets/index.js"></script>-->
+</body>
+</html>
