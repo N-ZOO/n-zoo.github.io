@@ -13,19 +13,17 @@
             overflow: hidden;
         }
         .loading-mask mask-bg,.loading-mask mask-top{
+            position: absolute;
+            width:409px;height:158px;
             mask-image: url(src/image/common/mask.png);
             -webkit-mask-image: url(src/image/common/mask.png);
         }
         .loading-mask mask-bg{
-            position: absolute;
-            width:409px;height:158px;
             background-image: linear-gradient(353deg,#89C027,#89C027 28%,#E96036 28%,#E96036 49%,#FEF158 49%,#FEF158 72%,#76C5EE 72%);
             background-image: -webkit-linear-gradient(353deg,#89C027,#89C027 28%,#E96036 28%,#E96036 49%,#FEF158 49%,#FEF158 72%,#76C5EE 72%);
             background-image: -moz-linear-gradient(353deg,#89C027,#89C027 28%,#E96036 28%,#E96036 49%,#FEF158 49%,#FEF158 72%,#76C5EE 72%);
         }
         .loading-mask mask-top{
-            position: absolute;
-            width:409px;height:158px;
             background-image: linear-gradient(bottom,#EEEEEE,#EEEEEE 60%,rgba(0,0,0,0) 60%);
             background-image: -webkit-linear-gradient(bottom,#EEEEEE,#EEEEEE 60%,rgba(0,0,0,0) 60%);
             background-image: -moz-linear-gradient(bottom,#EEEEEE,#EEEEEE 60%,rgba(0,0,0,0) 60%);
