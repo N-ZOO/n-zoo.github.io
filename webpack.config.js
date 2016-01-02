@@ -17,7 +17,7 @@ module.exports = {
     //����ļ��������
     output: {
         path: 'dist/js/page',
-        //publicPath: "/assets/",
+        publicPath: "dist/js/page/",
         filename: '[name].js'
     },
     //devtool: 'eval-source-map',
@@ -39,7 +39,7 @@ module.exports = {
             { test: /\.scss$/, loader: 'style!css!sass'},
             //{ test: /\.scss$/, loader: 'style!css!sass?sourceMap'},
             {
-                test: /\.(png|jpg)$/, loader: 'url-loader?limit=8888192'
+                test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192'
             }
         ]
     },
